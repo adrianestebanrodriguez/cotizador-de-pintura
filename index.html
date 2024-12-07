@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización de Pintura</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="imagenes/logo blanco nuevo c rodriguez.png" alt="Logo de C. Rodriguez Su Pintor" class="logo">
+        <h1>Cotización de Servicios de Pintura</h1>
+    </header>
+    <main>
+        <form id="cotizacionForm">
+            <h2>Información del Cliente</h2>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="whatsapp">Número de WhatsApp:</label>
+            <input type="text" id="whatsapp" name="whatsapp" required>
+            
+            <h2>Dimensiones del Inmueble</h2>
+            <label for="altura">Altura de los muros (m):</label>
+            <input type="number" id="altura" name="altura" step="0.01" required>
+            
+            <label for="perimetro">Perímetro de los muros (m) (sume todos el largo de todos los muros) :</label>
+            <input type="number" id="perimetro" name="perimetro" step="0.01" required>
+            
+            <label for="largo">Largo del techo (m):</label>
+            <input type="number" id="largo" name="largo" step="0.01" required>
+            
+            <label for="ancho">Ancho del techo (m):</label>
+            <input type="number" id="ancho" name="ancho" step="0.01" required>
+            
+            <button type="button" id="calcularBtn">Calcular Área y Costo</button>
+        </form>
+
+        <section id="resultados">
+            <h2>Resultados</h2>
+            <div id="areasCalculadas"></div>
+            <div id="costoTotal"></div>
+            <button id="generarPDF">Generar PDF</button>
+        </section>
+
+        <div id="contacto">
+            <h3>¿Necesitas más información?</h3>
+            <p>Haz clic en el botón para contactarnos directamente por WhatsApp.</p>
+            <a href="https://wa.me/573167864766?text=Hola%20C.Rodriguez%20Su%20Pintor,%20necesito%20pintar%20mi%20inmueble%20con%20ustedes."
+               class="btn-whatsapp"
+               target="_blank">
+                Contactar por WhatsApp
+            </a>
+        </div>
+        
+    </main>
+    <footer>
+        <p>© 2024 C. Rodriguez Su Pintor</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</body>
+</html>
