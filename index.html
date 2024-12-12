@@ -3,64 +3,60 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotización de Pintura</title>
-    <meta name="description" content="pintamos casas, apartamentos, locales comerciales en Medellín, todo lo relacionado con acabados de obra blanca, enchapes, instalación de drywall"/>    
+    <title>Calculadora de Servicios de Pintura</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <header>
-        <img src="logo blanco nuevo c rodriguez.png" alt="Logo de C. Rodriguez Su Pintor" class="logo">
-        <h1>Cotización de Servicios de Pintura</h1>
+        <img src="imagenes/logo blanco nuevo c rodriguez.png" alt="Logo de C.Rodriguez Su Pintor" class="logo">
+        <h1>Calculadora de Servicios de Pintura</h1>
     </header>
     <main>
-        <form id="cotizacionForm">
-            <form id="cotizacionForm" action="https://formsubmit.co/adrianalvarezr@gmail.com" method="POST"/>
-            <h2>Información del Cliente</h2>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="whatsapp">Número de WhatsApp:</label>
-            <input type="text" id="whatsapp" name="whatsapp" required>
-            
-            <h2>Dimensiones del Inmueble</h2>
-            <label for="altura">Altura de los muros (m):</label>
-            <input type="number" id="altura" name="altura" step="0.01" required>
-            
-            <label for="perimetro">Perímetro de los muros (m) (sume todos el largo de todos los muros) :</label>
-            <input type="number" id="perimetro" name="perimetro" step="0.01" required>
-            
-            <label for="largo">Largo del techo (m):</label>
-            <input type="number" id="largo" name="largo" step="0.01" required>
-            
-            <label for="ancho">Ancho del techo (m):</label>
-            <input type="number" id="ancho" name="ancho" step="0.01" required>
-            
-            <button type="button" id="calcularBtn">Calcular Área y Costo</button>
+        <form id="paintForm">
+            <fieldset>
+                <legend>Información del Cliente</legend>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="whatsapp">WhatsApp:</label>
+                <input type="tel" id="whatsapp" name="whatsapp" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Dimensiones del Inmueble</legend>
+                <label for="wallHeight">Altura de los muros (m):</label>
+                <input type="number" id="wallHeight" name="wallHeight" step="0.01" required>
+
+                <label for="wallPerimeter">suma del largo de todos los muros (incluyendo muros internos) (m):</label>
+                <input type="number" id="wallPerimeter" name="wallPerimeter" step="0.01" required>
+
+                <label for="floorLength">Largo del piso (m):</label>
+                <input type="number" id="floorLength" name="floorLength" step="0.01" required>
+
+                <label for="floorWidth">Ancho del piso (m):</label>
+                <input type="number" id="floorWidth" name="floorWidth" step="0.01" required>
+            </fieldset>
+
+            <button type="button" id="calculateButton">Calcular Costo</button>
         </form>
 
-        <section id="resultados">
+        <section id="results">
             <h2>Resultados</h2>
-            <div id="areasCalculadas"></div>
-            <div id="costoTotal"></div>
-            <button id="generarPDF">Generar PDF</button>
+            <p id="totalArea">Área total a pintar: </p>
+            <p id="totalCost">Costo total del servicio: </p>
+            <p> <strong> Nota: Estos valores son aproximados y corresponden a acabados con pintura tipo 1 válidos para la ciudad de Medellín. Para mayor certeza con respecto al metraje, solicite una visita técnica al WhatsApp +573167864766. </strong></p>
+            <button id="downloadPdf">Guardar como PDF</button>
         </section>
-
-        <div id="contacto">
-            <h3>¿Necesitas más información?</h3>
-            <p> Esta es una precotización con un valor estimado para la ciudad de Medellín </p>
-            <p>Haz clic en el botón para contactarnos directamente por WhatsApp y solicitar una visita técnica</p>
-            <a href="https://wa.me/573167864766?text=Hola%20C.Rodriguez%20Su%20Pintor,%20necesito%20pintar%20mi%20inmueble%20con%20ustedes."
-               class="btn-whatsapp"
-               target="_blank">
-                Contactar por WhatsApp
-            </a>
-        </div>
-        
     </main>
-    <footer>
+</body>
+</html>
+
         <p>© 2024 C. Rodriguez Su Pintor</p>
     </footer>
 
